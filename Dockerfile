@@ -9,4 +9,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -qq && \
 
 RUN gem install riemann-tools
 
-CMD ["/usr/local/bin/riemann-health","--host","10.101.0.99"]
+ADD start-riemann-health.sh /start-riemann-health.sh
+
+CMD ["/bin/bash","/start-riemann-health.sh"]
+
